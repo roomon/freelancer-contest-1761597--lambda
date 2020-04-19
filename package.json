@@ -1,0 +1,17 @@
+{
+  "name": "f-contest-1761597-lambda",
+  "version": "0.0.0",
+  "description": "AWS Lambda functions for Freelancer.com Contest ID 1761597",
+  "main": "index.js",
+  "scripts": {
+    "invoke": "node index"
+  },
+  "author": "Rumon",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^5.9.9"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
