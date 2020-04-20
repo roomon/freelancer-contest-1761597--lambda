@@ -1,7 +1,5 @@
-const mongoose = require("mongoose");
-
-// collection name
-const collection = "countries";
+const mongoose = require('mongoose');
+const Country = require('./models/Country');
 
 exports.handler = async () => {
   // connect to mongodb
@@ -10,21 +8,6 @@ exports.handler = async () => {
     useUnifiedTopology: true,
   });
 
-  // define model
-  const schema = new mongoose.Schema(
-    {
-      country: String,
-      latitude: Number,
-      longitude: Number,
-      name: String,
-    },
-    { collection }
-  );
-
-  // assign model
-  const Country = mongoose.model("country", schema);
-
-  // fetch data
   const countries = await Country.find();
 
   // return mapped response
