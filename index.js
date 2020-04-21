@@ -5,7 +5,10 @@ require('dotenv').config();
 const lambda = require('./lambda');
 require('http')
   .createServer(async (req, res) => {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.writeHead(200, {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+    });
     let stream;
     switch (req.url) {
       case '/bar-chart':
