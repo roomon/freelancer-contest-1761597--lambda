@@ -1,0 +1,7 @@
+{
+  "barchart": "barchart",
+  "linechart": "linechart",
+  "piechart": "piechart",
+  "gauge": "gauge",
+  "map": "map"
+}
