@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const db = require('./db');
 
 /**
  * Import models
@@ -8,17 +8,6 @@ const Income = require('./models/Income');
 const Oil = require('./models/Oil');
 const Usage = require('./models/Usage');
 const Visitor = require('./models/Visitor');
-
-/**
- * Connect to MongoDB
- * Call this function in every lambda
- */
-async function db() {
-  await mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-}
 
 /**
  * Lambda: Bar Chart
