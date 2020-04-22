@@ -38,7 +38,7 @@ exports.piechart = async () => {
  */
 exports.gauge = async () => {
   await db();
-  return await Usage.find().sort({ _id: -1 }).limit(1);
+  return await (await Usage.find().sort({ _id: -1 }).limit(1)).pop();
 };
 
 /**
