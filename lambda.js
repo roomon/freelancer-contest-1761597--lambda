@@ -14,7 +14,8 @@ const Visitor = require('./models/Visitor');
  */
 exports.barchart = async () => {
   await db();
-  return await Income.find();
+  const incomes = await Income.find();
+  return { statusCode: 200, body: JSON.stringify(incomes) };
 };
 
 /**
@@ -22,7 +23,8 @@ exports.barchart = async () => {
  */
 exports.linechart = async () => {
   await db();
-  return await Visitor.find();
+  const visitors = await Visitor.find();
+  return { statusCode: 200, body: JSON.stringify(visitors) };
 };
 
 /**
@@ -30,7 +32,8 @@ exports.linechart = async () => {
  */
 exports.piechart = async () => {
   await db();
-  return await Oil.find();
+  const oils = await Oil.find();
+  return { statusCode: 200, body: JSON.stringify(oils) };
 };
 
 /**
@@ -38,7 +41,8 @@ exports.piechart = async () => {
  */
 exports.gauge = async () => {
   await db();
-  return await (await Usage.find().sort({ _id: -1 }).limit(1)).pop();
+  const usage = await Usage.find().sort({ _id: -1 }).limit(1);
+  return { statusCode: 200, body: JSON.stringify(usage.pop()) };
 };
 
 /**
@@ -47,9 +51,5 @@ exports.gauge = async () => {
 exports.map = async () => {
   await db();
   const countries = await Country.find();
-  return countries.map((country) => ({
-    title: country.name,
-    latitude: country.latitude,
-    longitude: country.longitude,
-  }));
+  return { statusCode: 200, body: JSON.stringify(countries) };
 };
